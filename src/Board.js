@@ -79,15 +79,25 @@
     // 
     // test if a specific row on this board contains a conflict
     hasRowConflictAt: function(rowIndex){
+      var conflicts = 0;
+      for(var i = 0; i < this.attributes.n; i++){
+        conflicts += this.attributes[rowIndex][i];
+        if (conflicts > 1){
+          return true;
+        }
+      }
       return false; // fixme
     },
 
     // test if any rows on this board contain conflicts
     hasAnyRowConflicts: function(){
+      for (var i = 0; i < this.attributes.n; i++){
+        if (this.hasRowConflictAt(i)){
+          return true;
+        }
+      }
       return false; // fixme
     },
-
-
 
     // COLUMNS - run from top to bottom
     // --------------------------------------------------------------
@@ -131,7 +141,19 @@
     hasAnyMinorDiagonalConflicts: function(){
       return false; // fixme
     }
+    
+    // transpose the input matrix
+    transpose: function(){
+      var matrix = this.attributes;
+      var transpose = [];
+      var n = this.attributes.n;
 
+      for (var i = 0; i < n; i++){
+        for (var j = 0; j < n; j++){
+          var 
+        }
+      }
+    }
     /*--------------------  End of Helper Functions  ---------------------*/
 
 
